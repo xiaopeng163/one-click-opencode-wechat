@@ -10,14 +10,6 @@
   },
 
   "postCreateCommand": "bash .devcontainer/post-create.sh",
-
-  "customizations": {
-    "vscode": {
-      "extensions": [
-        "anomaly.opencode"
-      ]
-    }
-  },
-
+  
   "remoteUser": "vscode"
 }

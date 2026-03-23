@@ -5,20 +5,30 @@
 
 echo "🚀 Setting up OpenCode..."
 
-# Install OpenCode CLI
-npm install -g @opencode/cli
+curl -fsSL https://opencode.ai/install | bash
 
-# Verify installation
-if command -v opencode &> /dev/null; then
-    echo "✅ OpenCode CLI installed successfully!"
-    opencode --version
-else
-    echo "❌ Failed to install OpenCode CLI"
-    exit 1
-fi
+# refresh the shell environment to recognize opencode command
+source ~/.bashrc
 
-# Optional: Initialize OpenCode configuration
-# opencode init
+# get opencode bin location
+OPENCODE_BIN=$(which opencode)
 
-echo "🎉 Setup complete! You can now use OpenCode in this Codespace."
-echo "Run 'opencode' to get started."
+# One-line install weclaw
+curl -sSL https://raw.githubusercontent.com/fastclaw-ai/weclaw/main/install.sh | sh
+
+# Create weclaw config directory and config file
+mkdir -p ~/.weclaw
+
+cat > ~/.weclaw/config.json << 'EOF'
+{
+  "default_agent": "opencode",
+  "agents": {
+    "opencode": {
+      "type": "acp",
+      "command": "$OPENCODE_BIN",
+      "args": ["acp"],
+      "model": "opencode/minimax-m2.5-free"
+    }
+  }
+}
+EOF
