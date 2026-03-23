@@ -1,0 +1,1 @@
+# one-click-opencode-wechat
