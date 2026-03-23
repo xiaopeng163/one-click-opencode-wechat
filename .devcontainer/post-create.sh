@@ -7,12 +7,6 @@ echo "🚀 Setting up OpenCode..."
 
 curl -fsSL https://opencode.ai/install | bash
 
-# refresh the shell environment to recognize opencode command
-source ~/.bashrc
-
-# get opencode bin location
-OPENCODE_BIN=$(which opencode)
-
 # One-line install weclaw
 curl -sSL https://raw.githubusercontent.com/fastclaw-ai/weclaw/main/install.sh | sh
 
