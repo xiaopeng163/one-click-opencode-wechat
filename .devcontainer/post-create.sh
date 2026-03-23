@@ -19,13 +19,13 @@ curl -sSL https://raw.githubusercontent.com/fastclaw-ai/weclaw/main/install.sh |
 # Create weclaw config directory and config file
 mkdir -p ~/.weclaw
 
-cat > ~/.weclaw/config.json << 'EOF'
+cat > ~/.weclaw/config.json << EOF
 {
   "default_agent": "opencode",
   "agents": {
     "opencode": {
       "type": "acp",
-      "command": "$OPENCODE_BIN",
+      "command": "/home/vscode/.opencode/bin/opencode",
       "args": ["acp"],
       "model": "opencode/minimax-m2.5-free"
     }
